@@ -19,6 +19,11 @@ app.post('/', (req, res) => {
   res.send('新增一筆  Todo')
 })
 
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+
 app.listen(port, () => {
   console.log(`App running on port ${port}`)
 })
