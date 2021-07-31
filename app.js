@@ -4,8 +4,14 @@ const app = express()
 const port = 3000
 
 app.use((req, res, next) => {
-  console.log(new Date().toLocaleString(), ' | ', req.method, 'from', req.originalUrl)
+  let startTime = new Date()
   next()
+  //can listen on 'close' or 'finish'
+  res.on('finish', () => {
+    const endTime = new Date()
+    const totalTime = endTime - startTime
+    console.log(new Date(endTime).toLocaleString(), ' | ', req.method, 'from', req.originalUrl, ' | ', 'total time：', totalTime, 'ms')
+  })
 })
 
 
