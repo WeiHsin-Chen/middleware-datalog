@@ -10,7 +10,11 @@ app.use((req, res, next) => {
   res.on('finish', () => {
     const endTime = new Date()
     const totalTime = endTime - startTime
-    console.log(new Date(endTime).toLocaleString(), ' | ', req.method, 'from', req.originalUrl, ' | ', 'total time：', totalTime, 'ms')
+    if (req.originalUrl.includes('favicon.ico')) {
+      res.status(204).end()
+    }
+    else (
+      console.log(new Date(endTime).toLocaleString(), ' | ', req.method, 'from', req.originalUrl, ' | ', 'total time：', totalTime, 'ms'))
   })
 })
 
