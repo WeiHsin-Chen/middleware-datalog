@@ -11,11 +11,14 @@
 ## 基本功能
 
 (1) 使用題目指定的 app.js 內容
+
 (2) 在路由裡加入一支 middleware
+
 (3) 伺服器接到任一請求時，server log 上能正確印出 (log 數量不限)：
 - 時間戳記 (time-stamps) - 以當地時間 (台北) 顯示
 - 請求的 HTTP 方法
 - URL
+- 伺服器回應的時間長度，如 8ms
 
 ## Getting Started
 Clone respository to your local computer
